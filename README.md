@@ -259,34 +259,6 @@ This system addresses these issues by providing a centralized web-based platform
 
 ---
 
-# API Endpoints
-
-## Authentication
-
-* POST /api/auth/register
-* POST /api/auth/login
-* POST /api/auth/forgot-password
-
-## Courses
-
-* GET /api/courses
-* GET /api/courses/:id
-* POST /api/courses
-* PUT /api/courses/:id
-* DELETE /api/courses/:id
-
-## Enrollment
-
-* POST /api/enroll
-* GET /api/enrollments
-
-## Progress
-
-* GET /api/progress
-* PUT /api/progress/:id
-
----
-
 # Future Enhancements
 
 * Online Quiz System
