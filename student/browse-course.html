@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Browse Courses | EduTrack</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/student.css">
+    </head>
+
+    <body>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg shadow-sm">
+            <div class="container">
+
+                <a class="navbar-brand fw-bold" href="#">
+                    <i class="bi bi-mortarboard-fill"></i>EduTrack
+                </a>
+
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="student-dashboard.html">Dashboard</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="browse-course.html">Browse Courses</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="my-courses.html">My Courses</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Heading -->
+
+        <div class="container my-5">
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <h2>Browse Courses</h2>
+
+                <input type="text"
+                    class="form-control w-25"
+                    placeholder="Search Course">
+
+            </div>
+
+            <!-- Course Cards -->
+
+            <div class="row g-4">
+
+                <!-- Card 1 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="card h-100 course-card">
+
+                        <img src="../images/course1.jpg"
+                            class="card-img-top"
+                            alt="Course">
+
+                        <div class="card-body">
+
+                            <h5>Full Stack Development</h5>
+
+                            <p>
+                                <i class="bi bi-person-workspace"></i>
+                                John Smith
+                            </p>
+
+                            <p>
+                                <i class="bi bi-clock"></i>
+                                12 Weeks
+                            </p>
+
+                            <p>
+                                Learn HTML, CSS, JavaScript, React, Node.js and MongoDB.
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white border-0">
+
+                            <a href="course-detail.html"
+                                class="btn btn-outline-primary">
+                                Details
+                            </a>
+
+                            <a href="enrollment-success.html"
+                                class="btn btn-primary float-end">
+                                Enroll
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Card 2 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="card h-100 course-card">
+
+                        <img src="../images/course2.jpg"
+                            class="card-img-top"
+                            alt="Course">
+
+                        <div class="card-body">
+
+                            <h5>Python Programming</h5>
+
+                            <p>
+                                <i class="bi bi-person-workspace"></i>
+                                Sarah Wilson
+                            </p>
+
+                            <p>
+                                <i class="bi bi-clock"></i>
+                                10 Weeks
+                            </p>
+
+                            <p>
+                                Learn Python programming from beginner to advanced.
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white border-0">
+
+                            <a href="course-detail.html"
+                                class="btn btn-outline-primary">
+                                Details
+                            </a>
+
+                            <a href="enrollment-success.html"
+                                class="btn btn-primary float-end">
+                                Enroll
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Card 3 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="card h-100 course-card">
+
+                        <img src="../images/course3.jpg"
+                            class="card-img-top"
+                            alt="Course">
+
+                        <div class="card-body">
+
+                            <h5>Artificial Intelligence</h5>
+
+                            <p>
+                                <i class="bi bi-person-workspace"></i>
+                                David Brown
+                            </p>
+
+                            <p>
+                                <i class="bi bi-clock"></i>
+                                14 Weeks
+                            </p>
+
+                            <p>
+                                Learn AI, Machine Learning and Deep Learning fundamentals.
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white border-0">
+
+                            <a href="course-detail.html"
+                                class="btn btn-outline-primary">
+                                Details
+                            </a>
+
+                            <a href="enrollment-success.html"
+                                class="btn btn-primary float-end">
+                                Enroll
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+
+</html>
