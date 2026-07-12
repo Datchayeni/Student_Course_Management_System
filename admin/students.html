@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Students | EduTrack</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+
+    <!-- Sidebar -->
+
+    <div class="col-lg-2 sidebar">
+
+        <h3 class="text-center py-4"><i class="bi bi-mortarboard-fill"></i>EduTrack</h3>
+
+        <a href="admin-dashboard.html">
+            <i class="bi bi-speedometer2"></i>
+            Dashboard
+        </a>
+
+        <a href="courses.html">
+            <i class="bi bi-book"></i>
+            Courses
+        </a>
+
+        <a href="students.html" class="active">
+            <i class="bi bi-people"></i>
+            Students
+        </a>
+
+        <a href="notifications.html">
+            <i class="bi bi-bell"></i>
+            Notifications
+        </a>
+
+        <a href="../Home page.html">
+            <i class="bi bi-box-arrow-right"></i>
+            Logout
+        </a>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="col-lg-10">
+
+        <nav class="navbar bg-white shadow-sm px-4">
+
+            <h4>Manage Students</h4>
+
+        </nav>
+
+        <div class="container py-4">
+
+            <!-- Search & Filter -->
+
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+
+                    <input type="text"
+                        class="form-control"
+                        placeholder="Search Student">
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <select class="form-select">
+
+                        <option>All Departments</option>
+                        <option>Computer Science</option>
+                        <option>Information Technology</option>
+                        <option>Artificial Intelligence</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- Students Table -->
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Courses</th>
+                                <th>Progress</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>1001</td>
+
+                                <td>Datchayeni</td>
+
+                                <td>datchayeni@email.com</td>
+
+                                <td>Computer Science</td>
+
+                                <td>5</td>
+
+                                <td>
+                                    <span class="badge bg-success">
+                                        80%
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button class="btn btn-sm btn-warning">
+
+                                        <i class="bi bi-pencil-square"></i>
+
+                                    </button>
+
+                                    <button class="btn btn-sm btn-danger">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>1002</td>
+
+                                <td>John</td>
+
+                                <td>john@email.com</td>
+
+                                <td>IT</td>
+
+                                <td>3</td>
+
+                                <td>
+
+                                    <span class="badge bg-primary">
+                                        60%
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="btn btn-sm btn-warning">
+
+                                        <i class="bi bi-pencil-square"></i>
+
+                                    </button>
+
+                                    <button class="btn btn-sm btn-danger">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>1003</td>
+
+                                <td>Emma</td>
+
+                                <td>emma@email.com</td>
+
+                                <td>AI</td>
+
+                                <td>6</td>
+
+                                <td>
+
+                                    <span class="badge bg-success">
+
+                                        100%
+
+                                    </span>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="btn btn-sm btn-warning">
+
+                                        <i class="bi bi-pencil-square"></i>
+
+                                    </button>
+
+                                    <button class="btn btn-sm btn-danger">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
