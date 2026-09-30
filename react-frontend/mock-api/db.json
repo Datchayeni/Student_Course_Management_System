@@ -1,0 +1,86 @@
+{
+  "courses": [
+    {
+      "id": "fullstack",
+      "courseName": "Full Stack Development",
+      "courseCode": "FS101",
+      "instructor": "John Smith",
+      "duration": "12 Weeks",
+      "level": "Beginner",
+      "category": "Web Development",
+      "image": "https://cdn-icons-png.flaticon.com/512/1006/1006363.png",
+      "status": "Active",
+      "overview": "Learn HTML, CSS, JavaScript, React, Node.js and MongoDB.",
+      "learningOutcomes": [
+        "Build responsive pages with HTML, CSS and Bootstrap",
+        "Write interactive front-ends with JavaScript and React",
+        "Build a backend with Node.js",
+        "Store and retrieve data with MongoDB"
+      ],
+      "modules": [
+        "HTML Basics",
+        "CSS Fundamentals",
+        "Bootstrap 5",
+        "JavaScript Basics",
+        "React JS",
+        "Node.js & MongoDB"
+      ]
+    },
+    {
+      "id": "python",
+      "courseName": "Python Programming",
+      "courseCode": "CS101",
+      "instructor": "Sarah Wilson",
+      "duration": "10 Weeks",
+      "level": "Beginner",
+      "category": "Programming",
+      "image": "https://cdn-icons-png.flaticon.com/512/5968/5968350.png",
+      "status": "Active",
+      "overview": "Learn Python programming from beginner to advanced.",
+      "learningOutcomes": [
+        "Understand Python syntax and data types",
+        "Use conditionals, loops and functions",
+        "Work with lists and dictionaries",
+        "Read and write files in Python"
+      ],
+      "modules": [
+        "Python Introduction",
+        "Variables & Data Types",
+        "Operators",
+        "Conditional Statements",
+        "Loops",
+        "Functions",
+        "Lists & Dictionaries",
+        "File Handling"
+      ]
+    },
+    {
+      "id": "ai",
+      "courseName": "Artificial Intelligence",
+      "courseCode": "AI101",
+      "instructor": "David Brown",
+      "duration": "14 Weeks",
+      "level": "Advanced",
+      "category": "Artificial Intelligence",
+      "image": "https://cdn-icons-png.flaticon.com/512/4712/4712027.png",
+      "status": "Active",
+      "overview": "Learn AI, Machine Learning and Deep Learning fundamentals.",
+      "learningOutcomes": [
+        "Understand core AI and machine learning concepts",
+        "Differentiate supervised and unsupervised learning",
+        "Understand how neural networks work",
+        "Explore deep learning and real AI applications"
+      ],
+      "modules": [
+        "AI Fundamentals",
+        "Python for AI",
+        "Machine Learning",
+        "Supervised Learning",
+        "Unsupervised Learning",
+        "Neural Networks",
+        "Deep Learning",
+        "AI Applications"
+      ]
+    }
+  ]
+}
