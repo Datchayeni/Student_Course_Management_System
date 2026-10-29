@@ -3,12 +3,18 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 
+// Import database connection function
+const connectDB = require("./config/db"); // Adjust path if your db.js is located elsewhere
+
 const courseRoutes = require("./routes/courseRoutes");
 const authRoutes = require("./routes/authRoutes");
 const notFound = require("./middleware/notFoundMiddleware");
 const errorHandler = require("./middleware/errorMiddleware");
 
 dotenv.config();
+
+// Connect to MongoDB
+connectDB();
 
 const app = express();
 

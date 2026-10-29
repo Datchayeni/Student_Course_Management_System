@@ -1,36 +1,52 @@
 const bcrypt = require("bcryptjs");
-const { randomUUID } = require("crypto");
-const students = require("../data/students");
+const User = require("../models/User");
 
 async function registerStudent({ name, email, password, department }) {
   const normalizedEmail = email.trim().toLowerCase();
-  if (students.find(s => s.email === normalizedEmail)) {
+  
+  // Check if student already exists in MongoDB
+  const existingUser = await User.findOne({ email: normalizedEmail });
+  if (existingUser) {
     const error = new Error("Email is already registered");
     error.statusCode = 409;
     throw error;
   }
+
   const passwordHash = await bcrypt.hash(password, 12);
-  const student = {
-    id: randomUUID(),
+  
+  // Create and save new user document in MongoDB
+  const user = await User.create({
     name: name.trim(),
     email: normalizedEmail,
     passwordHash,
     department: department.trim(),
-    createdAt: new Date().toISOString(),
+  });
+
+  return { 
+    id: user._id, 
+    name: user.name, 
+    email: user.email, 
+    department: user.department 
   };
-  students.push(student);
-  return { id: student.id, name: student.name, email: student.email, department: student.department };
 }
 
 async function loginStudent({ email, password }) {
   const normalizedEmail = email.trim().toLowerCase();
-  const student = students.find(s => s.email === normalizedEmail);
-  if (!student || !(await bcrypt.compare(password, student.passwordHash))) {
+  
+  // Find student by email in MongoDB
+  const user = await User.findOne({ email: normalizedEmail });
+  if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
     const error = new Error("Invalid email or password");
     error.statusCode = 401;
     throw error;
   }
-  return { id: student.id, name: student.name, email: student.email, department: student.department };
+
+  return { 
+    id: user._id, 
+    name: user.name, 
+    email: user.email, 
+    department: user.department 
+  };
 }
 
 module.exports = { registerStudent, loginStudent };
