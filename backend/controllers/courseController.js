@@ -1,98 +1,100 @@
-const {
-    getAllCourses,
-    getCourseById,
-    createCourse,
-    updateCourse,
-    deleteCourse
-} = require("../services/courseService");
+const Course = require("../models/Course");
 
-// GET /api/courses
-const getCourses = (req, res) => {
-
-    const courses = getAllCourses();
-
-    res.status(200).json({
-        success: true,
-        count: courses.length,
-        data: courses
-    });
-};
-
-// GET /api/courses/:id
-const getCourse = (req, res) => {
-
-    const course =
-        getCourseById(req.params.id);
-
-    if (!course) {
-
-        return res.status(404).json({
-            success: false,
-            message: "Course not found"
+// GET /api/v1/courses
+const getCourses = async (req, res, next) => {
+    try {
+        const courses = await Course.find({});
+        res.status(200).json({
+            success: true,
+            count: courses.length,
+            data: courses
         });
+    } catch (error) {
+        next(error);
     }
-
-    res.status(200).json({
-        success: true,
-        data: course
-    });
 };
 
-// POST /api/courses
-const addCourse = (req, res) => {
+// GET /api/v1/courses/:id
+const getCourse = async (req, res, next) => {
+    try {
+        const course = await Course.findById(req.params.id);
 
-    const newCourse =
-        createCourse(req.body);
+        if (!course) {
+            return res.status(404).json({
+                success: false,
+                message: "Course not found"
+            });
+        }
 
-    res.status(201).json({
-        success: true,
-        message: "Course created successfully",
-        data: newCourse
-    });
+        res.status(200).json({
+            success: true,
+            data: course
+        });
+    } catch (error) {
+        next(error);
+    }
 };
 
-// PUT /api/courses/:id
-const editCourse = (req, res) => {
+// POST /api/v1/courses
+const addCourse = async (req, res, next) => {
+    try {
+        const newCourse = await Course.create(req.body);
 
-    const updatedCourse =
-        updateCourse(
+        res.status(201).json({
+            success: true,
+            message: "Course created successfully",
+            data: newCourse
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
+// PUT /api/v1/courses/:id
+const editCourse = async (req, res, next) => {
+    try {
+        const updatedCourse = await Course.findByIdAndUpdate(
             req.params.id,
-            req.body
+            req.body,
+            { new: true, runValidators: true }
         );
 
-    if (!updatedCourse) {
+        if (!updatedCourse) {
+            return res.status(404).json({
+                success: false,
+                message: "Course not found"
+            });
+        }
 
-        return res.status(404).json({
-            success: false,
-            message: "Course not found"
+        res.status(200).json({
+            success: true,
+            message: "Course updated successfully",
+            data: updatedCourse
         });
+    } catch (error) {
+        next(error);
     }
-
-    res.status(200).json({
-        success: true,
-        message: "Course updated successfully",
-        data: updatedCourse
-    });
 };
 
-// DELETE /api/courses/:id
-const removeCourse = (req, res) => {
+// DELETE /api/v1/courses/:id
+const removeCourse = async (req, res, next) => {
+    try {
+        const deleted = await Course.findByIdAndDelete(req.params.id);
 
-    const deleted =
-        deleteCourse(req.params.id);
+        if (!deleted) {
+            return res.status(404).json({
+                success: false,
+                message: "Course not found"
+            });
+        }
 
-    if (!deleted) {
-
-        return res.status(404).json({
-            success: false,
-            message: "Course not found"
+        res.status(200).json({
+            success: true,
+            message: "Course deleted successfully"
         });
+    } catch (error) {
+        next(error);
     }
-
-    res.status(200).json({
-        success: true,
-        message: "Course deleted successfully"
-    });
 };
 
 module.exports = {

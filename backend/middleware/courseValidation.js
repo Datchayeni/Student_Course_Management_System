@@ -1,31 +1,27 @@
 const validateCourse = (req, res, next) => {
-
     const {
-        courseName,
-        courseCode,
+        title,
+        description,
         instructor,
         duration,
-        category
+        price
     } = req.body;
 
-    if (!courseName) {
-
+    if (!title) {
         return res.status(400).json({
             success: false,
-            message: "Course name is required"
+            message: "Course title is required"
         });
     }
 
-    if (!courseCode) {
-
+    if (!description) {
         return res.status(400).json({
             success: false,
-            message: "Course code is required"
+            message: "Course description is required"
         });
     }
 
     if (!instructor) {
-
         return res.status(400).json({
             success: false,
             message: "Instructor is required"
@@ -33,18 +29,16 @@ const validateCourse = (req, res, next) => {
     }
 
     if (!duration) {
-
         return res.status(400).json({
             success: false,
             message: "Duration is required"
         });
     }
 
-    if (!category) {
-
+    if (price === undefined || price === null || price === "") {
         return res.status(400).json({
             success: false,
-            message: "Category is required"
+            message: "Price is required"
         });
     }
 

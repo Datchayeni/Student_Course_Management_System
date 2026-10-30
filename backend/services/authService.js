@@ -2,6 +2,13 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
 async function registerStudent({ name, email, password, department }) {
+  // Validate that required fields are present
+  if (!name || !email || !password) {
+    const error = new Error("Name, email, and password are required");
+    error.statusCode = 400;
+    throw error;
+  }
+
   const normalizedEmail = email.trim().toLowerCase();
   
   // Check if student already exists in MongoDB
@@ -19,7 +26,7 @@ async function registerStudent({ name, email, password, department }) {
     name: name.trim(),
     email: normalizedEmail,
     passwordHash,
-    department: department.trim(),
+    department: department ? department.trim() : "", // Safely handle optional department
   });
 
   return { 
@@ -31,6 +38,12 @@ async function registerStudent({ name, email, password, department }) {
 }
 
 async function loginStudent({ email, password }) {
+  if (!email || !password) {
+    const error = new Error("Email and password are required");
+    error.statusCode = 400;
+    throw error;
+  }
+
   const normalizedEmail = email.trim().toLowerCase();
   
   // Find student by email in MongoDB

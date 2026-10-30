@@ -8,8 +8,8 @@ const {
 } = require("../controllers/courseController");
 const validateCourse = require("../middleware/courseValidation");
 
-// 1. Add this import to fix the ReferenceError
-const { authenticateToken } = require("../middleware/authMiddleware");
+// Fix: Import the authentication middleware directly (no curly braces)
+const authenticateToken = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
