@@ -89,7 +89,7 @@ function App() {
             <Route element={<ProtectedRoute role="student" />}>
 
                 <Route
-                    path="/dashboard"
+                    path="/student-dashboard"
                     element={<StudentDashboard />}
                 />
 

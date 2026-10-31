@@ -22,11 +22,14 @@ function errorHandler(err, req, res, next) {
     });
   }
 
+  // Support both err.status and err.statusCode
+  const errStatus = err.status || err.statusCode;
+
   const status =
-    Number.isInteger(err.status) &&
-    err.status >= 400 &&
-    err.status < 600
-      ? err.status
+    Number.isInteger(errStatus) &&
+    errStatus >= 400 &&
+    errStatus < 600
+      ? errStatus
       : 500;
 
   res.status(status).json({
