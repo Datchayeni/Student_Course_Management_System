@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course | EduTrack</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<div class="row">
+
+    <!-- Sidebar -->
+
+    <div class="col-lg-2 sidebar">
+
+        <h3 class="text-center py-4"><i class="bi bi-mortarboard-fill"></i>EduTrack</h3>
+
+        <a href="admin-dashboard.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+        </a>
+
+        <a href="courses.html" class="active">
+            <i class="bi bi-book"></i> Courses
+        </a>
+
+        <a href="students.html">
+            <i class="bi bi-people"></i> Students
+        </a>
+
+        <a href="notifications.html">
+            <i class="bi bi-bell"></i> Notifications
+        </a>
+
+        <a href="../Home page.html">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="col-lg-10">
+
+        <nav class="navbar bg-white shadow-sm px-4">
+
+            <h4>Add New Course</h4>
+
+            <a href="courses.html" class="btn btn-outline-primary">
+                Back
+            </a>
+
+        </nav>
+
+        <div class="container py-4">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <form>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">Course Name</label>
+
+                                <input type="text"
+                                    class="form-control"
+                                    placeholder="Enter Course Name">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">Instructor</label>
+
+                                <input type="text"
+                                    class="form-control"
+                                    placeholder="Instructor Name">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">Duration</label>
+
+                                <input type="text"
+                                    class="form-control"
+                                    placeholder="12 Weeks">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">Category</label>
+
+                                <select class="form-select">
+
+                                    <option>Select Category</option>
+
+                                    <option>Programming</option>
+
+                                    <option>Web Development</option>
+
+                                    <option>Artificial Intelligence</option>
+
+                                    <option>Machine Learning</option>
+
+                                    <option>Data Science</option>
+
+                                    <option>Cloud Computing</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Course Description
+                            </label>
+
+                            <textarea class="form-control"
+                                rows="5"
+                                placeholder="Enter Course Description">
+                            </textarea>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Upload Course Image
+                            </label>
+
+                            <input type="file"
+                                class="form-control">
+
+                        </div>
+
+                        <button class="btn btn-primary">
+                            <i class="bi bi-plus-circle"></i>
+                            Add Course
+                        </button>
+
+                        <button type="reset"
+                            class="btn btn-secondary">
+
+                            Reset
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
