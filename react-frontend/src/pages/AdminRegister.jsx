@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import PageCss from "../components/PageCss";
 import PageShell from "../components/PageShell";
 import api from "../services/api";
+import { getErrorMessage } from "../utils/apiError";
 
 function AdminRegister() {
 
@@ -56,11 +57,11 @@ function AdminRegister() {
         }
 
         const passwordPattern =
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{12,}$/;
 
         if (!passwordPattern.test(formData.password)) {
             setError(
-                "Password must contain at least 8 characters, including uppercase, lowercase, number and special character."
+                "Password must contain at least 12 characters, including uppercase, lowercase, number and special character."
             );
             return;
         }
@@ -80,8 +81,7 @@ function AdminRegister() {
         } catch (err) {
 
             setError(
-                err.response?.data?.message ||
-                "Registration failed. Please check that the server is running and try again."
+                getErrorMessage(err, "Registration failed. Please check that the server is running and try again.")
             );
 
             return;

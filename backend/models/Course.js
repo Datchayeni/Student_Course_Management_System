@@ -35,4 +35,6 @@ const courseSchema = new mongoose.Schema(
   }
 );
 
+courseSchema.index({ createdAt: -1 });
+
 module.exports = mongoose.model("Course", courseSchema);

@@ -2,7 +2,7 @@ const User = require("../models/User");
 
 async function getProfile(req, res, next) {
   try {
-    const user = await User.findById(req.user.sub).select("name email role department studentId year createdAt");
+    const user = await User.findById(req.user.sub).select("name email role department studentId year createdAt").lean();
 
     if (!user) {
       return res.status(404).json({

@@ -20,6 +20,12 @@ function errorHandler(err, req, res, next) {
     });
   }
 
+  if (err.type === "entity.parse.failed") {
+    return res.status(400).json({
+      message: "Malformed JSON in request body"
+    });
+  }
+
   if (err.name === "CastError") {
     return res.status(400).json({
       message: "Invalid identifier"

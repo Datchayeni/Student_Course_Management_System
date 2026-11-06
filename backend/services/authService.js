@@ -38,8 +38,8 @@ async function registerStudent({
     throw badRequest("Name, email, and password are required");
   }
 
-  if (password.length < 8) {
-    throw badRequest("Password must be at least 8 characters long");
+  if (password.length < 12 || password.length > 72) {
+    throw badRequest("Password must contain between 12 and 72 characters");
   }
 
   const normalizedEmail = email.trim().toLowerCase();
@@ -77,8 +77,8 @@ async function registerAdmin({ name, adminId, email, password, department }) {
     throw badRequest("Name, admin ID, email, and password are required");
   }
 
-  if (password.length < 8) {
-    throw badRequest("Password must be at least 8 characters long");
+  if (password.length < 12 || password.length > 72) {
+    throw badRequest("Password must contain between 12 and 72 characters");
   }
 
   const normalizedEmail = email.trim().toLowerCase();

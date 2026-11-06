@@ -2,10 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Message = require("../models/Message");
 const authMiddleware = require("../middleware/authMiddleware");
+const validateRequest = require("../middleware/validateRequest");
+const { mongoIdParam } = require("../validators/courseValidators");
 
 const router = express.Router();
 
-router.get("/:userId", authMiddleware, async (req, res, next) => {
+router.get("/:userId", authMiddleware, mongoIdParam("userId", "user ID"), validateRequest, async (req, res, next) => {
   try {
     const myId = req.user.sub;
     const otherId = req.params.userId;

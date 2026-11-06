@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import PageCss from "../components/PageCss";
 import PageShell from "../components/PageShell";
 import api from "../services/api";
+import { getErrorMessage } from "../utils/apiError";
 import { useAuth } from "../auth/AuthContext";
 
 
@@ -143,9 +144,7 @@ function Login() {
         } catch (err) {
 
             setError(
-                err.response?.data?.message ||
-                err.message ||
-                "Login failed. Please check your email and password and try again."
+                getErrorMessage(err, "Login failed. Please check your email and password and try again.")
             );
 
         } finally {

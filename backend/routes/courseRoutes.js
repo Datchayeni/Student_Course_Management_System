@@ -1,31 +1,54 @@
 const express = require("express");
 const {
-    getCourses,
-    getCourse,
-    addCourse,
-    editCourse,
-    removeCourse
+  getCourses,
+  getCourse,
+  addCourse,
+  editCourse,
+  removeCourse,
 } = require("../controllers/courseController");
-const validateCourse = require("../middleware/courseValidation");
-
-// Fix: Import the authentication middleware directly (no curly braces)
+const {
+  courseBodyValidation,
+  mongoIdParam,
+  paginationValidation,
+} = require("../validators/courseValidators");
+const validateRequest = require("../middleware/validateRequest");
 const authenticateToken = require("../middleware/authMiddleware");
 
+const { requireRole } = authenticateToken;
+
 const router = express.Router();
+const idCheck = [mongoIdParam("id", "course ID"), validateRequest];
 
-// GET all courses
-router.get("/", getCourses);
+// Anyone can read courses
+router.get("/", paginationValidation, validateRequest, getCourses);
+router.get("/:id", idCheck, getCourse);
 
-// GET one course
-router.get("/:id", getCourse);
+// Only admins can change courses (students get 403)
+router.post(
+  "/",
+  authenticateToken,
+  requireRole("admin"),
+  courseBodyValidation,
+  validateRequest,
+  addCourse
+);
 
-// CREATE course
-router.post("/", authenticateToken, validateCourse, addCourse);
+router.put(
+  "/:id",
+  authenticateToken,
+  requireRole("admin"),
+  idCheck,
+  courseBodyValidation,
+  validateRequest,
+  editCourse
+);
 
-// UPDATE course
-router.put("/:id", authenticateToken, validateCourse, editCourse);
-
-// DELETE course
-router.delete("/:id", authenticateToken, removeCourse);
+router.delete(
+  "/:id",
+  authenticateToken,
+  requireRole("admin"),
+  idCheck,
+  removeCourse
+);
 
 module.exports = router;

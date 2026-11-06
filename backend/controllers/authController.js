@@ -32,7 +32,7 @@ async function login(req, res, next) {
       process.env.JWT_SECRET,
       {
         subject: String(student.id),
-        expiresIn: process.env.JWT_EXPIRE || "1d",
+        expiresIn: process.env.JWT_EXPIRES_IN || process.env.JWT_EXPIRE || "1d",
         algorithm: "HS256",
       }
     );

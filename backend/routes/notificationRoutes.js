@@ -4,6 +4,10 @@ const Notification = require("../models/Notification");
 const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 
+const validateRequest = require("../middleware/validateRequest");
+const { mongoIdParam } = require("../validators/courseValidators");
+const { body } = require("express-validator");
+
 const { requireRole } = authMiddleware;
 
 const router = express.Router();
@@ -14,7 +18,8 @@ router.get("/", authMiddleware, async (req, res, next) => {
       recipient: req.user.sub
     })
       .sort({ createdAt: -1 })
-      .limit(50);
+      .limit(50)
+      .lean();
 
     res.json({ notifications });
   } catch (error) {
@@ -24,7 +29,10 @@ router.get("/", authMiddleware, async (req, res, next) => {
 
 // Admin: send a notification to all students, one department or one student.
 // Each student gets a saved copy and, if online, it arrives instantly.
-router.post("/send", authMiddleware, requireRole("admin"), async (req, res, next) => {
+router.post("/send", authMiddleware, requireRole("admin"),
+  body("audience").optional().isString().withMessage("Invalid audience").bail().isLength({ max: 150 }).withMessage("Audience is too long"),
+  validateRequest,
+  async (req, res, next) => {
   try {
     const { title, message, audience } = req.body || {};
 
@@ -132,7 +140,7 @@ router.patch("/read-all", authMiddleware, async (req, res, next) => {
   }
 });
 
-router.patch("/:id/read", authMiddleware, async (req, res, next) => {
+router.patch("/:id/read", authMiddleware, mongoIdParam("id", "notification ID"), validateRequest, async (req, res, next) => {
   try {
     const notification = await Notification.findOneAndUpdate(
       { _id: req.params.id, recipient: req.user.sub },

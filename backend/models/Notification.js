@@ -45,4 +45,7 @@ notificationSchema.index({
   createdAt: -1
 });
 
+// Used by the admin "sent history" aggregation
+notificationSchema.index({ sender: 1, createdAt: -1 });
+
 module.exports = mongoose.model("Notification", notificationSchema);
